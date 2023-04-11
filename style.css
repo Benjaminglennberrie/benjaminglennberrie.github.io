@@ -29,11 +29,11 @@
 }
 
 /* services section css */
-.servicesText.card {
+.interestsText.card {
     height: 280px;
     cursor: pointer;
   }
-.servicesIcon {
+.interestsIcon {
     font-size: 36px;
     text-align: center;
     width: 100%;
@@ -44,7 +44,7 @@
 .card:hover .servicesIcon {
     color: #008000;
 }
-.servicesText:hover {
+.interestsText:hover {
     border: 1px solid #008000;
 }
 
@@ -71,7 +71,7 @@
 }
 
 /* spacing on all sections */
-#about, #services, #portfolio, #contact {
+#about, #interests, #resume, #contact {
     margin-top: 4rem;
     padding-top: 4rem;
 }
