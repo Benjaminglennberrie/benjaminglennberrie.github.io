@@ -20,9 +20,13 @@
     transform: translate(-50%, -50%);
     color: white;
 }
-.navbar-custom {
-    background-color: lightgreen;
-}
+.navbar a {
+    color: white; /* Change the color of the links in the navbar */
+  }
+  .navbar {
+    background-color: black;
+    /* set the default color of the text to black */
+  }
 /* about section image css */
 .imageAboutPage {
     width: 100%;
@@ -42,12 +46,12 @@
     text-align: center;
 }
 .card:hover .servicesIcon {
-    color: #008000;
+    color: #b48c8c;
 }
 .interestsText:hover {
-    border: 1px solid #008000;
+    border: 1px solid #b48c8c;
 }
-
+/*008000>
 /* display background color black on navbar scroll */
 .navbarScroll.navbarDark {
     background-color: black;
