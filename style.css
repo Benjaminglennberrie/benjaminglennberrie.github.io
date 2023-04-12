@@ -23,6 +23,13 @@
 .navbar-custom {
     background-color: lightgreen;
 }
+.navbar {
+    background-color: black; /* Change the background color of the navbar */
+  }
+  
+  .navbar a {
+    color: white; /* Change the color of the links in the navbar */
+  }
 /* about section image css */
 .imageAboutPage {
     width: 100%;
