@@ -73,32 +73,15 @@
 } */
 
 @keyframes glitch-colors {
-    0% {
-        color: #00ff00;
-    }
-    10% {
-        color: #ff00ff;
-    }
+   
     20% {
         color: #00ffff;
     }
-    30% {
-        color: #ff0000;
-    }
-    40% {
+   
+    10% {
         color: #0000ff;
     }
-    50% {
-        color: #ffff00;
-    }
-    60% {
-        color: #00ff00;
-    }
-    70% {
-        color: #ff00ff;
-    }
 }
-
 
 
 /*FONTS!!!*/
