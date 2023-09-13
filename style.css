@@ -5,6 +5,17 @@
     background-size:cover;
     position:relative;
 }
+
+/* hero background image OTHER PAGES*/
+.programmingBackground {
+    height:100vh;
+    background: url('images/JavaBackground.jpeg');
+    background-size:cover;
+    position:relative;
+}
+
+
+
 /* text css above hero image*/
 .hero_title {
     font-size: 4.5rem;
