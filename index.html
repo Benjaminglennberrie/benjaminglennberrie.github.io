@@ -1,214 +1,222 @@
-<!-- Hello Test-->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
+<title>Portfolio Website Benjamin</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- linking css file -->
+<link rel="stylesheet" href="style.css">
+<!-- bootstrap CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- font awesome -->
+<script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+</head>
 
+<body>
+  <!-- load javascript after loading all html content -->
+  <script src="script/script.js"></script>
+</body>
+
+
+<nav class="navbar navbar-expand-lg fixed-top navbarScroll">
+<div class="container">
+    <a class="navbar-brand" href="index.html">Benjamin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="interests.html">Interests</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="resume.html">Resume</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+    </ul>
+        
+    </div>
+</div>
+</nav>
+
+  <head>
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Portfolio Website Benjamin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- linking css file -->
     <link rel="stylesheet" href="style.css">
-    <!-- bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- font awesome -->
     <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+    <style>
+      .video-nav {
+        position: absolute;
+        top: 25%;
+        width: 100%;
+        z-index: 1000;
+      }
+      .video-nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .video-nav-item {
+        position: relative;
+        padding: 10px 20px;
+        display: inline-block;
+      }
+      .video-nav-item:nth-child(odd) {
+        align-self: flex-start;
+        margin-left: 20px;
+      }
+      .video-nav-item:nth-child(even) {
+        align-self: flex-end;
+        margin-right: 20px;
+      }
+      .video-nav-item a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2em;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        position: relative;
+        z-index: 2;
+      }
+      .video-nav-item a:hover {
+        color: #ddd;
+      }
+      .bgvideo {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
+      #heroVideo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+      }
+
+      /* Orbit animation styles */
+      .orbit-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80px;
+        height: 80px;
+        border: 2px solid transparent;
+        border-top: 2px solid rgba(255, 255, 255, 0.7); /* Changed color to white */
+        border-radius: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        animation: halfOrbit 6s ease-in-out infinite alternate; /* Oscillates back and forth */
+        z-index: 1;
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+      }
+      .video-nav-item:hover .orbit-ring {
+        animation: halfOrbit 1.5s ease-in-out infinite alternate; /* Speeds up on hover */
+        border-top-color: rgba(0, 255, 255, 0.9);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+      }
+      
+      .video-nav-item:hover .orbit-ring {
+        animation: orbit 1s linear infinite; /* Speeds up on hover */
+      }
+
+      @keyframes 
+      halfOrbit {
+        0% {
+          transform: translate(-50%, -50%) rotate(-90deg); /* Starts at bottom left */
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(90deg); /* Ends at bottom right, forming a 180-degree arc */
+        }
+      
+      orbit 
+        
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+    </style>
   </head>
 
   <body>
-      <!-- load javascript after loading all html content -->
-      <script src="script/script.js"></script>
-  </body>
-
-
-
-  <nav class="navbar navbar-expand-lg fixed-top navbarScroll">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Benjamin</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="interests.html">Interests</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="resume.html">Resume</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
+    <section class="bgvideo" id="home">
+      <div class="video-nav">
+        <ul class="video-nav-list">
+          <li class="video-nav-item">
+            <span class="orbit-ring"></span>
+            <a href="index.html">Home</a>
+          </li>
+          <li class="video-nav-item">
+            <span class="orbit-ring"></span>
+            <a href="#about">About</a>
+          </li>
+          <li class="video-nav-item">
+            <span class="orbit-ring"></span>
+            <a href="interests.html">Interests</a>
+          </li>
+          <li class="video-nav-item">
+            <span class="orbit-ring"></span>
+            <a href="resume.html">Resume</a>
+          </li>
+          <li class="video-nav-item">
+            <span class="orbit-ring"></span>
+            <a href="contact.html">Contact</a>
+          </li>
         </ul>
-            
-        </div>
-    </div>
-  </nav>
-
-
-  <!-- main banner
-  <section class="bgimage" id="home">
-    <div class="container-fluid">
+      </div>
+      
+      <div class="container-fluid">
         <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
             <h2 class="hero_title">Hi, my name is Benjamin.</h2>
             <p class="hero_desc">Computer Science Student at California Baptist University</p>
-        </div>
-        </div>
-    </div>
-</section> -->
-
-<section class="bgvideo" id="home">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
-              <h2 class="hero_title">Hi, my name is Benjamin.</h2>
-              <p class="hero_desc">Computer Science Student at California Baptist University</p>
           </div>
+        </div>
       </div>
-  </div>
 
-  <video autoplay muted loop id="heroVideo">
+      <video autoplay muted loop id="heroVideo">
+        <source src="images/heroVideo1.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </section>
 
-      <source src="images/heroVideo1.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-  </video>
-
-</section>
-
-
-
-    <!-- about section-->
-  <section id="about">
-    <div class="container mt-4 pt-4">
-        <h1 class="text-center">About Me</h1>
-        <div class="row mt-4">
-             <div class="col-lg-4">
-                <img src="images/about/about.jpeg" class= "imageAboutPage" alt="">
-            </div>
-
-            <div class="col-lg-8">
-                <p> 
-                  My name is Benjamin Glenn Barrie Brodwolf, and I have had the privilege of living in several countries across continents, including America, South Africa, Israel, 
-                  and Germany. As a result, I have been exposed to a wide range of cultures, customs, and languages, which has given me a unique perspective on the world.
-                  One of my passions is programming, which I view as a complex puzzle with infinite possibilities. I relish the challenge of solving technical problems and utilizing 
-                  my creativity to design elegant solutions. 
-                </p>
-                <div class="row mt-3">
-                    <div class="col-md-6">
-                        <ul>
-                            <li>Name: Benjamin Brodwolf</li>
-                            <li>Age: 21</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul>
-
-                            <li>Occupation: Audio/Visual Worker Conferences and Events.</li>
-                            <li>Degree: Bachelors in Computer Science Engineering</li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <p> I take pride in my ability to approach programming as both a technical and artistic pursuit, and I enjoy showcasing my talents in design and problem-solving through my work.
-                      Overall, I am a driven and dedicated individual with a diverse range of experiences and interests. I am excited about the opportunities that the future holds, and
-                       I am eager to continue learning and growing both personally and professionally.</p>
-                    </div>
-            </div>
-          </div>
-</section>
-	
-
-<div>
-  
-  <h2 class="AboutOpener">Where I'm from...</h2>
-
-
-</div>
-
-<div> 
-  
-  class="AboutParagraphs"> I've lived in a lot of places, having experience in many deverse cultures.
-
-</div>
-
-
-<div class="RightPlacedImage hide">
-
-  <img src="images/about/livepurpose.jpg" class="RightPlacedImage hide">
-
-</div>
-
-
-
-<!-- <div class="engineeringlogoimage">
-	<img src="images/about/engineeringlogo.jpeg">
-</div> -->
-
-<section>
-
-<body onload="showSlides(1)">
-
-  <div class="slideshow-container">
-    <div class="slideshow-image active">
-      <img src="images/about/livepurpose.jpg" alt="Image 1">
-      <div class="caption">Aerial View Of Campus</div>
-    </div>
-  
-    <div class="slideshow-image">
-      <img src="images/about/engineeringbuildingman.jpeg" alt="Image 2">
-      <div class="caption">Engineering Building</div>
-    </div>
-  
-    <div class="slideshow-image">
-      <img src="images/about/EngineeringbuildingCBU.jpg" alt="Image 3">
-      <div class="caption">Outside of Engineering Building</div>
-    </div>
-  
-    <button class="prev" onclick="plusSlides(-1)">❮</button>
-    <button class="next" onclick="plusSlides(1)">❯</button>
-  </div>
-  
-	
-	<script src="/script/script.js"></script>
-</body>
-
-</section>
-
-    
-
-
-
-
-
- <!-- footer section-->
- <footer id="footer">
-  <div class="container-fluid">
-      <!-- social media icons -->
-      <div class="social-icons mt-4">
+    <footer id="footer">
+      <div class="container-fluid">
+        <div class="social-icons mt-4">
           <a href="https://www.facebook.com/benjamin.brodwolf.3/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/benjamin_brodwolf/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-linkedin"></i></a>
-	      <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-handshake"></i></a>
+          <a href="https://www.instagram.com/benjamin_brodwolf/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-handshake"></i></a>
+        </div>
       </div>
-  </div>
-</footer>
+    </footer>
 
-
-
-
-
-
-
+    <script src="script/script.js"></script>
+  </body>
 </html>
