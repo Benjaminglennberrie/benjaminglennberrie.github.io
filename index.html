@@ -96,11 +96,11 @@
         position: relative;
         z-index: 2;
       }
-      .video-nav-item a:hover {
+      /* .video-nav-item a:hover {
         color: #ddd;
-      }
+      } */
       .bgvideo {
-        position: relative;
+        position: fill;
         height: 100vh;
         overflow: hidden;
       }
@@ -133,10 +133,23 @@
         z-index: 1;
         box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
       }
+      .orbit-ring2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80px;
+        height: 80px;
+        border: 2px solid transparent;
+        border-top: 2px solid rgba(255, 255, 255, 0.7); /* Changed color to white */
+        border-radius: 50%;
+        transform: translate(-50%, -50%) rotate(0 deg);
+        animation: halfOrbit2 6s ease-in-out infinite alternate; /* Oscillates back and forth */
+        z-index: 1;
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+      }
       .video-nav-item:hover .orbit-ring {
-        animation: halfOrbit 1.5s ease-in-out infinite alternate; /* Speeds up on hover */
-        border-top-color: rgba(0, 255, 255, 0.9);
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        animation: orbit 3s ease-in-out infinite alternate; /* Speeds up on hover */
+        /* box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); */
       }
       
       .video-nav-item:hover .orbit-ring {
@@ -144,6 +157,31 @@
       }
 
       @keyframes 
+      
+
+
+      halfOrbit2 {
+        0% {
+          transform: translate(-50%, -50%) rotate(-90deg); /* Starts at bottom left */
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(90deg); /* Ends at bottom right, forming a 180-degree arc */
+        }
+      
+      orbit 
+        
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+
+      @keyframes 
+
+
       halfOrbit {
         0% {
           transform: translate(-50%, -50%) rotate(-90deg); /* Starts at bottom left */
@@ -161,6 +199,8 @@
           transform: translate(-50%, -50%) rotate(360deg);
         }
       }
+
+
     </style>
   </head>
 
@@ -170,6 +210,8 @@
         <ul class="video-nav-list">
           <li class="video-nav-item">
             <span class="orbit-ring"></span>
+            <span class="orbit-ring2"></span>
+
             <a href="index.html">Home</a>
           </li>
           <li class="video-nav-item">
@@ -186,6 +228,8 @@
           </li>
           <li class="video-nav-item">
             <span class="orbit-ring"></span>
+            <span class="orbit-ring2"></span>
+
             <a href="contact.html">Contact</a>
           </li>
         </ul>
