@@ -28,7 +28,12 @@
     object-fit: cover;
 }
 
-
+.hero_desc {
+    font-size: 2rem;
+    color: auto;
+    text-align: center;
+    margin-top: 20px;
+}
 .AboutOpener {
     position: relative;
     font-size: 4.5rem;
@@ -119,7 +124,11 @@
   font-family: "Georgia", serif; /* college-like font */
   font-size: 2rem;
   }
-  
+  .hero_title3 {
+    align-items: middle;
+    left: 20%
+
+  }
   
   .slideshow-container {
 	position: relative;
