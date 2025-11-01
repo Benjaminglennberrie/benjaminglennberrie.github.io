@@ -10,34 +10,142 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+    /* ---------- GENERAL ---------- */
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+
+    nav.navbar {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+    }
+
+    /* ---------- HEADER ---------- */
     header {
-      background: linear-gradient(120deg, #198754, #0d6efd);
+      background: linear-gradient(135deg, #198754, #0d6efd);
       color: white;
+      padding-top: 7rem;
+      padding-bottom: 4rem;
+      text-align: center;
     }
-    section h2 {
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    header h1 {
       font-weight: 700;
-      color: #198754;
     }
+
+    header p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ---------- NAV LINKS TO SECTIONS ---------- */
+    .scroll-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .scroll-links a {
+      text-decoration: none;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.6rem 1.4rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .scroll-links a:hover {
+      background-color: white;
+      color: #0d6efd;
+    }
+
+    /* ---------- PROJECT SECTIONS ---------- */
+    section {
+      padding: 5rem 0;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #198754;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
     .project-card {
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 15px;
       overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       margin-bottom: 3rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
     .project-card img {
       width: 100%;
-      height: auto;
+      height: 350px;
+      object-fit: cover;
     }
+
     .project-card .content {
       padding: 2rem;
     }
+
+    .project-card h3 {
+      color: #0d6efd;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
     .quote {
       font-style: italic;
       color: #666;
       border-left: 3px solid #198754;
       padding-left: 1rem;
       margin-top: 1rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #111;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #00ffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
@@ -47,123 +155,89 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top navbarScroll">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Benjamin</a>
+      <a class="navbar-brand text-light fw-bold" href="index.html">Benjamin</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="projects.html">Projects & Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="interests.html">Interests</a></li>
-          <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="interests.html">Interests</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="resume.html">Resume</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Header -->
-  <header class="text-center py-5 mt-5">
+  <header>
     <div class="container">
-      <h1 class="fw-bold">Projects & Experience</h1>
-      <p class="lead">Pro Bono Net Internship — Expanding access to justice through technology</p>
-      <p class="mb-0">Supervisor: <strong>Simon Rah</strong> | Date: <strong>Fall 2025</strong></p>
+      <img src="images/profileimage.jpg" alt="Benjamin Brodwolf" class="profile-img">
+      <h1>Projects & Experience</h1>
+      <p>Hands-on work in automation, software, and innovation.</p>
+      <div class="scroll-links">
+        <a href="#automation">Automation Experience (n8n)</a>
+        <a href="#internship">My Internship Experience</a>
+        <a href="#smartfoods">SmartFoods Nutrition (iOS App)</a>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <section class="py-5">
+  <!-- Automation Section -->
+  <section id="automation">
     <div class="container">
-
-      <!-- Organization Intro -->
+      <h2>Automation Experience (n8n)</h2>
       <div class="project-card">
-        <img src="images/projects/probononet-overview.jpg" alt="Pro Bono Net office or website homepage placeholder">
+        <img src="images/projects/n8n.png" alt="Automation flow example">
         <div class="content">
-          <h2>About Pro Bono Net</h2>
-          <p>Pro Bono Net is a nonprofit organization that harnesses technology to expand access to justice for underserved communities. Founded in 1999, it partners with legal aid programs, courts, and community organizations to build digital tools that empower people to understand their rights and help advocates serve them more efficiently.</p>
-          <p>Its nationally recognized platforms include <strong>LawHelp.org</strong>, <strong>LawHelp Interactive</strong>, and <strong>Probono.net</strong>, all serving low-income families, veterans, immigrants, and disaster survivors.</p>
-          <p class="quote">“Harnessing technology for a more just future.” — Betty Balli Torres</p>
+          <h3>CMS Migration & API Automation</h3>
+          <p>At Pro Bono Net, my first major task involved automating content migration from Contentful to Payload CMS using <strong>n8n</strong>. This project required reading and applying API documentation, managing API keys, and handling HTTP authentication headers. It was a pivotal experience that introduced me to backend automation and no-code orchestration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Internship Section -->
+  <section id="internship">
+    <div class="container">
+      <h2>My Internship Experience</h2>
+      <div class="project-card">
+        <img src="images/probononet-overview.png" alt="Pro Bono Net overview">
+        <div class="content">
+          <h3>Pro Bono Net Internship — Access to Justice Through Technology</h3>
+          <p>During my internship, I contributed to Pro Bono Net’s mission of empowering underserved communities through digital tools. I collaborated with legal aid partners, learned project management in a nonprofit setting, and grew in both technical and professional maturity. Working remotely required me to practice independence, communication, and accountability.</p>
+          <p class="quote">"Harnessing technology for a more just future." — Betty Balli Torres</p>
           <a href="https://www.probono.net" target="_blank" class="btn btn-outline-success mt-3">Visit Pro Bono Net</a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Automation & API Project -->
+  <!-- SmartFoods Section -->
+  <section id="smartfoods">
+    <div class="container">
+      <h2>SmartFoods Nutrition (iOS App)</h2>
       <div class="project-card">
-        <img src="images/projects/n8n-automation.jpg" alt="Automation flow or API request placeholder">
+        <img src="images/projects/smartfoods-preview.jpg" alt="SmartFoods iOS App preview">
         <div class="content">
-          <h2>Automation & CMS Migration</h2>
-          <p>My first major project was to automate content migration from Contentful to Payload CMS using <strong>n8n</strong>. I learned to interpret API documentation, generate and secure API keys, and use HTTP headers for authentication and communication. This project gave me first-hand exposure to backend automation and the fundamentals of API-driven workflows.</p>
+          <h3>Nutrition Tracking & AI Integration</h3>
+          <p>SmartFoods is an iOS app I developed using SwiftUI and Firebase. It helps users log their meals, visualize macronutrients in dynamic pie charts, and get personalized AI nutrition insights. The app integrates with Firebase Firestore for data storage and uses AI via a custom backend built on Cloud Run.</p>
+          <p>This personal project combines my passion for nutrition, mobile design, and AI-driven feedback systems.</p>
         </div>
       </div>
-
-      <!-- AI & Chatbot Work -->
-      <div class="project-card">
-        <img src="images/projects/ai-chatbot-debug.jpg" alt="Chatbot debug console or code editor placeholder">
-        <div class="content">
-          <h2>AI Chatbot Development & Stress Testing</h2>
-          <p>I edited chatbot functionality within shadow DOM environments and conducted load and stress testing using Python. This work deepened my understanding of asynchronous requests, API rate limits, and debugging in distributed systems. It also strengthened my confidence in combining problem-solving and experimentation to push system reliability boundaries.</p>
-        </div>
-      </div>
-
-      <!-- Knowledge Management -->
-      <div class="project-card">
-        <img src="images/projects/km-site.jpg" alt="Google Sites dashboard placeholder">
-        <div class="content">
-          <h2>Knowledge Management System</h2>
-          <p>I contributed to maintaining and refining the company’s Knowledge Management site built on Google Sites. I ensured updates aligned with organizational standards and documentation consistency. Through this project, I learned how transparency and standardized communication sustain collaboration across large teams.</p>
-        </div>
-      </div>
-
-      <!-- Directory Initiative -->
-      <div class="project-card">
-        <img src="images/projects/legal-directory.jpg" alt="Legal directory website placeholder">
-        <div class="content">
-          <h2>Directory Initiative</h2>
-          <p>Collaborating with <strong>Ken</strong>, a PBN team member managing the legal directory, I worked to improve and update listings of legal service organizations nationwide. This project showed the scale of coordination required to maintain accurate legal resources and the real-world consequences of outdated information for vulnerable communities.</p>
-        </div>
-      </div>
-
-      <!-- Communication Growth -->
-      <div class="project-card">
-        <img src="images/projects/remote-collaboration.jpg" alt="Team video meeting placeholder">
-        <div class="content">
-          <h2>Remote Work & Communication</h2>
-          <p>Operating in a fully remote environment taught me professional communication across teams, integrity in self-management, and accountability in distributed workspaces. Early miscommunications became learning experiences that improved my reliability and proactive engagement with supervisors and teammates.</p>
-        </div>
-      </div>
-
-      <!-- Time Management -->
-      <div class="project-card">
-        <img src="images/projects/time-management.jpg" alt="Planner or work setup placeholder">
-        <div class="content">
-          <h2>Time Management & Balance</h2>
-          <p>While completing two academic courses and working full-time, I dedicated 20 hours per week to my internship. Balancing these commitments taught me prioritization, endurance, and how to maintain quality under pressure. These habits continue to guide my professional discipline and productivity.</p>
-        </div>
-      </div>
-
-      <!-- Reflection -->
-      <div class="project-card">
-        <img src="images/projects/team-group-photo.jpg" alt="Team group photo placeholder">
-        <div class="content">
-          <h2>Reflection</h2>
-          <p>My internship at Pro Bono Net was transformative. It broadened my technical capabilities, refined my professionalism, and grounded me in a mission larger than technology itself. The mentors I met and lessons I learned will remain foundational as I advance in my computer science career.</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <!-- Footer -->
-  <footer id="footer" class="bg-dark text-center text-light py-4">
-    <div class="container">
-      <div class="social-icons mb-3">
-        <a href="https://www.facebook.com/benjamin.brodwolf.3/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/benjamin_brodwolf/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <p class="mb-0">© 2025 Benjamin Brodwolf. All rights reserved.</p>
+  <footer>
+    <div class="social-icons mb-3">
+      <a href="https://www.facebook.com/benjamin.brodwolf.3/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/benjamin_brodwolf/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
+    <p class="mb-0">© 2025 Benjamin Brodwolf. All rights reserved.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
