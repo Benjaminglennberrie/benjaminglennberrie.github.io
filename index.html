@@ -1,266 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<title>Portfolio Website Benjamin</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- linking css file -->
-<link rel="stylesheet" href="style.css">
-<!-- bootstrap CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- font awesome -->
-<script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benjamin Brodwolf | Portfolio</title>
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "Poppins", sans-serif;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    /* === Background Video === */
+    .bgvideo {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #heroVideo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(60%);
+    }
+
+    /* === Hero Text === */
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+      text-align: left;
+      color: white;
+      z-index: 2;
+    }
+    .hero-text h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    /* === Video Nav === */
+    .video-nav {
+      position: absolute;
+      top: 50%;
+      left: 15%;
+      transform: translateY(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .video-nav-item {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-nav-item a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 500;
+      z-index: 2;
+      text-shadow: 0 0 8px rgba(0,0,0,0.6);
+      transition: color 0.3s;
+    }
+
+    .video-nav-item a:hover {
+      color: #00ffff;
+    }
+
+    /* === Orbit Rings === */
+    .orbit-ring, .orbit-ring2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      border: 2px solid transparent;
+      border-top: 2px solid rgba(0,255,255,0.7);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      box-shadow: 0 0 10px rgba(0,255,255,0.5);
+      animation: halfOrbit 6s ease-in-out infinite alternate;
+    }
+
+    .orbit-ring2 {
+      border-top: 2px solid rgba(0,255,255,0.4);
+      width: 120px;
+      height: 120px;
+      animation: halfOrbit2 6s ease-in-out infinite alternate;
+    }
+
+    .video-nav-item:hover .orbit-ring,
+    .video-nav-item:hover .orbit-ring2 {
+      animation: fullOrbit 1s linear infinite;
+      box-shadow: 0 0 20px rgba(0,255,255,0.8);
+    }
+
+    /* === Orbit Animations === */
+    @keyframes halfOrbit {
+      0% { transform: translate(-50%, -50%) rotate(-90deg); }
+      100% { transform: translate(-50%, -50%) rotate(90deg); }
+    }
+    @keyframes halfOrbit2 {
+      0% { transform: translate(-50%, -50%) rotate(90deg); }
+      100% { transform: translate(-50%, -50%) rotate(-90deg); }
+    }
+    @keyframes fullOrbit {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* === Footer === */
+    footer {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #00ffff;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- load javascript after loading all html content -->
-  <script src="script/script.js"></script>
-</body>
+  <section class="bgvideo" id="home">
+    <video autoplay muted loop id="heroVideo">
+      <source src="images/heroVideo1.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
 
-
-<nav class="navbar navbar-expand-lg fixed-top navbarScroll">
-<div class="container">
-    <a class="navbar-brand" href="index.html">Benjamin</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="interests.html">Interests</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="resume.html">Resume</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-    </ul>
-        
+    <!-- Orbit Nav -->
+    <div class="video-nav">
+      <div class="video-nav-item">
+        <span class="orbit-ring"></span>
+        <span class="orbit-ring2"></span>
+        <a href="index.html">Home</a>
+      </div>
+      <div class="video-nav-item">
+        <span class="orbit-ring"></span>
+        <a href="projects.html">Projects</a>
+      </div>
+      <div class="video-nav-item">
+        <span class="orbit-ring"></span>
+        <a href="interests.html">Interests</a>
+      </div>
+      <div class="video-nav-item">
+        <span class="orbit-ring"></span>
+        <a href="resume.html">Resume</a>
+      </div>
+      <div class="video-nav-item">
+        <span class="orbit-ring"></span>
+        <span class="orbit-ring2"></span>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
-</div>
-</nav>
 
-  <head>
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Portfolio Website Benjamin</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
-    <style>
-      .video-nav {
-        position: absolute;
-        top: 25%;
-        width: 100%;
-        z-index: 1000;
-      }
-      .video-nav-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .video-nav-item {
-        position: relative;
-        padding: 10px 20px;
-        display: inline-block;
-      }
-      .video-nav-item:nth-child(odd) {
-        align-self: flex-start;
-        margin-left: 20px;
-      }
-      .video-nav-item:nth-child(even) {
-        align-self: flex-end;
-        margin-right: 20px;
-      }
-      .video-nav-item a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.2em;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        position: relative;
-        z-index: 2;
-      }
-      /* .video-nav-item a:hover {
-        color: #ddd;
-      } */
-      .bgvideo {
-        position: fill;
-        height: 100vh;
-        overflow: hidden;
-      }
-      #heroVideo {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .hero-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        text-align: center;
-      }
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <h2>Hi, my name is <strong>Benjamin</strong>.</h2>
+      <p>Computer Science Student at California Baptist University</p>
+    </div>
 
-      /* Orbit animation styles */
-      .orbit-ring {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 80px;
-        height: 80px;
-        border: 2px solid transparent;
-        border-top: 2px solid rgba(255, 255, 255, 0.7); /* Changed color to white */
-        border-radius: 50%;
-        transform: translate(-50%, -50%) rotate(0deg);
-        animation: halfOrbit 6s ease-in-out infinite alternate; /* Oscillates back and forth */
-        z-index: 1;
-        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
-      }
-      .orbit-ring2 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 80px;
-        height: 80px;
-        border: 2px solid transparent;
-        border-top: 2px solid rgba(255, 255, 255, 0.7); /* Changed color to white */
-        border-radius: 50%;
-        transform: translate(-50%, -50%) rotate(0 deg);
-        animation: halfOrbit2 6s ease-in-out infinite alternate; /* Oscillates back and forth */
-        z-index: 1;
-        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
-      }
-      .video-nav-item:hover .orbit-ring {
-        animation: orbit 3s ease-in-out infinite alternate; /* Speeds up on hover */
-        /* box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); */
-      }
-      
-      .video-nav-item:hover .orbit-ring {
-        animation: orbit 1s linear infinite; /* Speeds up on hover */
-      }
-
-      @keyframes 
-      
-
-
-      halfOrbit2 {
-        0% {
-          transform: translate(-50%, -50%) rotate(-90deg); /* Starts at bottom left */
-        }
-        100% {
-          transform: translate(-50%, -50%) rotate(90deg); /* Ends at bottom right, forming a 180-degree arc */
-        }
-      
-      orbit 
-        
-        0% {
-          transform: translate(-50%, -50%) rotate(0deg);
-        }
-        100% {
-          transform: translate(-50%, -50%) rotate(360deg);
-        }
-      }
-
-
-      @keyframes 
-
-
-      halfOrbit {
-        0% {
-          transform: translate(-50%, -50%) rotate(-90deg); /* Starts at bottom left */
-        }
-        100% {
-          transform: translate(-50%, -50%) rotate(90deg); /* Ends at bottom right, forming a 180-degree arc */
-        }
-      
-      orbit 
-        
-        0% {
-          transform: translate(-50%, -50%) rotate(0deg);
-        }
-        100% {
-          transform: translate(-50%, -50%) rotate(360deg);
-        }
-      }
-
-
-    </style>
-  </head>
-
-  <body>
-    <section class="bgvideo" id="home">
-      <div class="video-nav">
-        <ul class="video-nav-list">
-          <li class="video-nav-item">
-            <span class="orbit-ring"></span>
-            <span class="orbit-ring2"></span>
-
-            <a href="index.html">Home</a>
-          </li>
-          <li class="video-nav-item">
-            <span class="orbit-ring"></span>
-            <a href="about.html">About</a>
-          </li>
-          <li class="video-nav-item">
-            <span class="orbit-ring"></span>
-            <a href="interests.html">Interests</a>
-          </li>
-          <li class="video-nav-item">
-            <span class="orbit-ring"></span>
-            <a href="resume.html">Resume</a>
-          </li>
-          <li class="video-nav-item">
-            <span class="orbit-ring"></span>
-            <span class="orbit-ring2"></span>
-
-            <a href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-      
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
-            <h2 class="hero_title">Hi, my name is Benjamin.</h2>
-            <p class="hero_desc">Computer Science Student at California Baptist University</p>
-          </div>
-        </div>
-      </div>
-
-      <video autoplay muted loop id="heroVideo">
-        <source src="images/heroVideo1.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-    </section>
-
+    <!-- Footer -->
     <footer id="footer">
-      <div class="container-fluid">
-        <div class="social-icons mt-4">
-          <a href="https://www.facebook.com/benjamin.brodwolf.3/" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com/benjamin_brodwolf/" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-handshake"></i></a>
-        </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/benjamin.brodwolf.3/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/benjamin_brodwolf/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </footer>
-
-    <script src="script/script.js"></script>
-  </body>
+  </section>
+</body>
 </html>

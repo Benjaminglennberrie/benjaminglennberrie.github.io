@@ -1,198 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Portfolio Website Benjamin</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- linking css file -->
-    <link rel="stylesheet" href="style.css">
-    <!-- bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interests | Benjamin Brodwolf</title>
 
-  <body>
-      <!-- load javascript after loading all html content -->
-      <script src="script/script.js"></script>
-  </body>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
 
+  <style>
+    header {
+      background: linear-gradient(120deg, #0d6efd, #198754);
+      color: white;
+    }
 
-  <nav class="navbar navbar-expand-lg fixed-top navbarScroll"> <!-- My NAV Bar Pages -->
+    .interest-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+    .interest-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    .interest-icon {
+      font-size: 3rem;
+      color: #198754;
+      margin-bottom: 1rem;
+    }
+    .interest-card h4 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #0d6efd;
+    }
+    .interest-card p {
+      color: #444;
+    }
+
+    /* Slideshow styling */
+    .slideshow-container {
+      position: relative;
+      max-width: 900px;
+      margin: 3rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .slideshow-image {
+      display: none;
+    }
+    .slideshow-image.active {
+      display: block;
+    }
+    .slideshow-image img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .caption {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.75rem;
+      font-size: 0.95rem;
+      border-radius: 0 0 12px 12px;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 0.5rem 1rem;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      transition: 0.3s ease;
+      border-radius: 4px;
+      user-select: none;
+      background: rgba(0,0,0,0.4);
+    }
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.7);
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top navbarScroll">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Benjamin</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="interests.html">Interests</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="resume.html">Resume</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
+      <a class="navbar-brand" href="index.html">Benjamin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects & Experience</a></li>
+          <li class="nav-item"><a class="nav-link active" href="interests.html">Interests</a></li>
+          <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
-            
-        </div>
+      </div>
     </div>
   </nav>
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- Interests section-->
-<section id="interests">
+
+  <!-- Header -->
+  <header class="text-center py-5 mt-5">
     <div class="container">
-        <!-- Header For Cards -->
-        <h1 class="text-center">Interests</h1>
-        <div class="row">
-            <div class="col-lg-4 mt-4">
-                <div class="card interestsText">
-                    <div class="card-body">
-                        <i class="fas interestsIcon fa-code"></i>
-                        <h4 class="card-title mt-3">Coding / Website Development</h4>
-                        <p class="card-text mt-3">
-                            Website worked on in my last internship: Reclamo.ai
-                            Other websites I've created: 
-                            thevelvetpinecone.com
-                            YoIntern.com (no longer active)
+      <h1 class="fw-bold">Interests & Passions</h1>
+      <p class="lead">Faith, Fitness, Coding, and Exploration — the four pillars that shape who I am.</p>
+    </div>
+  </header>
 
-                        
+  <!-- Interests Grid -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
 
-                              </p>
-                           <p> And I've made this portfolio website. I look forward to making more websites in the future. </p>
-                        
-                    </div>
-                </div>  
-            </div>
-            <div class="col-lg-4 mt-4">
-                <div class="card interestsText">
-                    <div class="card-body">
-                        <i class='fas interestsIcon fa-cross'></i>
-                        <h4 class="card-title mt-3">Follower of Christ</h4>
-                        <p class="card-text mt-3">I've devoted my life to being a follower of Jesus Christ. 
-                            Every day of my life is lived for His sake, as I make an effort to become more like Him.
-                        </p>
-                    </div>
-                </div>  
-            </div>
-  
-            <div class="col-lg-4 mt-4">
-                <div class="card interestsText">
-                    <div class="card-body">
-                        <i class='fas interestsIcon fa-globe-africa'></i>
-                        <h4 class="card-title mt-3">Missionary</h4>
-                        <p class="card-text mt-3">I've lived in the United States, South Africa, Canada, Israel, Zambia, and Germany. And had life experiences in 16 different countries. 
-                            One hope of mine is that God could use me in a different part of the world again one day. 
-                        </p>
-                    </div> 
-            </div>
+        <div class="col-md-4">
+          <div class="interest-card">
+            <i class="fas fa-code interest-icon"></i>
+            <h4>Coding & Web Development</h4>
+            <p>From building <strong>Reclamo.ai</strong> during my internship to launching <strong>thevelvetpinecone.com</strong> and <strong>YoIntern.com</strong>, I enjoy designing experiences that bring ideas to life through clean code.</p>
+            <p class="mt-2 text-muted">I also built this portfolio site from scratch — because why not?</p>
+          </div>
         </div>
-  
-        <div class="row">
-            <div class="col-lg-4 mt-4">
-                <div class="card interestsText">
-                    <div class="card-body">
-                        <i class='fas interestsIcon fa-dumbbell' ></i>
-                        
-                        <h4 class="card-title mt-3">Working out</h4>
-                        <p class="card-text mt-3">Working out is a passion of mine. I try to take care of the Body God has given me. </p>
 
-                        <p>  1 Corinthians 3:16, NIV Don’t you know that you yourselves are God’s temple and that God’s Spirit dwells in your midst?  </p>
-                        
-                    </div>
-                </div>  
-            </div>
-  
-                        
-  
-            <div class="col-lg-4 mt-4">
-                <div class="card interestsText">
-                    <div class="card-body">
-                        <i class='fas interestsIcon fa-running'></i>
-                        <h4 class="card-title mt-3">Cross Country</h4>
-                        <p class="card-text mt-3">In High School I enjoyed cross country. I ran all 4 years of high school when I went to school in Black Forest Academy. 
-                    </div>
-                </div>  
-            </div>
-
-            <div class="col-lg-4 mt-4">
-                <div class="card interestsText">
-                    <div class="card-body">
-                        <i class='fas interestsIcon fa-gamepad'></i>
-                        <h4 class="card-title mt-3">Gaming</h4>
-                        <p class="card-text mt-3">Big Minecraft kind of guy
-                    </div>
-                </div>  
-            </div>
-
-
+        <div class="col-md-4">
+          <div class="interest-card">
+            <i class="fas fa-cross interest-icon"></i>
+            <h4>Faith</h4>
+            <p>I’m a follower of Jesus Christ, striving to reflect His character through my work, relationships, and discipline. My worldview, goals, and purpose are all rooted in that relationship.</p>
+          </div>
         </div>
+
+        <div class="col-md-4">
+          <div class="interest-card">
+            <i class="fas fa-globe-africa interest-icon"></i>
+            <h4>Global Perspective</h4>
+            <p>Having lived in the U.S., South Africa, Canada, Israel, Zambia, and Germany — I’ve developed a deep appreciation for culture and diversity. I hope to one day serve abroad again in a mission-driven capacity.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row g-4 mt-1">
+        <div class="col-md-4">
+          <div class="interest-card">
+            <i class="fas fa-dumbbell interest-icon"></i>
+            <h4>Fitness</h4>
+            <p>I view working out as stewardship — taking care of the body God has given me. My motivation stems from <em>1 Corinthians 3:16</em>: “Don’t you know that you yourselves are God’s temple?”</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="interest-card">
+            <i class="fas fa-running interest-icon"></i>
+            <h4>Cross Country</h4>
+            <p>I ran all four years of high school at Black Forest Academy in Germany. Running taught me discipline, endurance, and the mental clarity that often parallels the coding mindset.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="interest-card">
+            <i class="fas fa-gamepad interest-icon"></i>
+            <h4>Gaming</h4>
+            <p>Yes, I’m still a big <strong>Minecraft</strong> guy — creative survival worlds, building, redstone automation. It’s the perfect mix of design and logic, same reason I love coding.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Slideshow -->
   <section>
-
-    <body onload="showSlides(1)">
-    
-      <div class="slideshow-container">
-        <div class="slideshow-image active">
-          <img src="images/interests/Kandernsky.jpg" alt="Image 1">
-          <div class="caption">Kandern Germany Where I went to High School and Ran Cross Country</div>
-        </div>
-      
-        <div class="slideshow-image">
-          <img src="images/interests/IMG_4709.jpg"alt="Image 2">
-          <div class="caption">My view from my dorm room</div>
-        </div>
-      
-        <div class="slideshow-image">
-          <img src="images/interests/IMG_4708.jpg" alt="Image 3">
-          <div class="caption">Top of a mountain in Switzerland</div>
-        </div>
-  
-        
-      
-        <button class="prev" onclick="plusSlides(-1)">❮</button>
-        <button class="next" onclick="plusSlides(1)">❯</button>
+    <div class="slideshow-container">
+      <div class="slideshow-image active">
+        <img src="images/interests/Kandernsky.jpg" alt="Kandern Germany">
+        <div class="caption">Kandern, Germany — where I went to high school and ran cross country</div>
       </div>
-      
-      
-      <script src="script.js"></script>
-    </body>
-    
-    </section>
-   <!-- footer section-->
- <footer id="footer">
-  <div class="container-fluid">
-      <!-- social media icons -->
-      <div class="social-icons mt-4">
-          <a href="https://www.facebook.com/benjamin.brodwolf.3/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/benjamin_brodwolf/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-linkedin"></i></a>
-	      <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-handshake"></i></a>
+
+      <div class="slideshow-image">
+        <img src="images/interests/IMG_4709.jpg" alt="Dorm View">
+        <div class="caption">My view from my dorm room</div>
       </div>
-  </div>
-</footer>
 
-  
+      <div class="slideshow-image">
+        <img src="images/interests/IMG_4708.jpg" alt="Swiss Mountain">
+        <div class="caption">Hike at the top of a mountain in Switzerland</div>
+      </div>
 
+      <button class="prev" onclick="plusSlides(-1)">❮</button>
+      <button class="next" onclick="plusSlides(1)">❯</button>
+    </div>
+  </section>
 
-    
+  <!-- Footer -->
+  <footer id="footer" class="bg-dark text-center text-light py-4">
+    <div class="container">
+      <div class="social-icons mb-3">
+        <a href="https://www.facebook.com/benjamin.brodwolf.3/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/benjamin_brodwolf/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/benjaminbrodwolf/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <p class="mb-0">© 2025 Benjamin Brodwolf. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName('slideshow-image');
+    showSlides();
+
+    function plusSlides(n) {
+      slideIndex += n - 1;
+      showSlides();
+    }
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) slides[i].classList.remove('active');
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].classList.add('active');
+      setTimeout(showSlides, 6000); // auto rotate every 6s
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
