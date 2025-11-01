@@ -134,6 +134,68 @@
     opacity: 1;
   }
 }
+/* ===========================
+   RESPONSIVE DESIGN FIXES
+   =========================== */
+@media (max-width: 992px) {
+  /* Center iframe and scale better */
+  .resume-container {
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+    height: auto;
+    flex-direction: column;
+  }
+
+  iframe {
+    width: 95%;
+    height: 80vh;
+  }
+
+  /* Navbar tweaks for mobile */
+  nav.navbar {
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  .navbar-toggler {
+    border-color: #00ffff;
+  }
+
+  .navbar-toggler-icon {
+    filter: invert(100%);
+  }
+
+  .navbar-nav .nav-link {
+    text-align: center;
+    padding: 0.8rem 0;
+  }
+
+  /* Footer spacing */
+  footer {
+    padding: 1rem 0;
+    font-size: 0.9rem;
+  }
+
+  .social-icons a {
+    font-size: 1.2rem;
+    margin: 0 8px;
+  }
+}
+
+/* Smaller phones */
+@media (max-width: 576px) {
+  iframe {
+    width: 95%;
+    height: 75vh;
+  }
+
+  .resume-container {
+    padding-top: 6rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
 
   </style>
 </head>
