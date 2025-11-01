@@ -149,6 +149,92 @@
     .social-icons a:hover {
       color: #00ffff;
     }
+    /* ===========================
+   RESPONSIVE DESIGN UPGRADES
+   =========================== */
+
+/* Default (Desktop): you already nailed it */
+
+@media (max-width: 992px) {
+  /* Video and background tweaks */
+  #heroVideo {
+    filter: brightness(50%);
+  }
+
+  /* Make hero text centered for mobile */
+  .hero-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+  }
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  /* Turn the vertical nav into a bottom bar */
+  .video-nav {
+    position: absolute;
+    bottom: 40px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .video-nav-item {
+    width: 70px;
+    height: 70px;
+  }
+
+  .video-nav-item a {
+    font-size: 0.85em;
+  }
+
+  .orbit-ring,
+  .orbit-ring2 {
+    width: 60px;
+    height: 60px;
+    border-width: 1.5px;
+  }
+
+  /* Footer social icons smaller + higher */
+  footer {
+    bottom: 5px;
+  }
+  .social-icons a {
+    font-size: 1.2rem;
+    margin: 0 6px;
+  }
+}
+
+/* Even smaller devices (portrait phones) */
+@media (max-width: 576px) {
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+
+  .video-nav {
+    bottom: 20px;
+    gap: 15px;
+  }
+
+  .video-nav-item {
+    width: 60px;
+    height: 60px;
+  }
+}
+
   </style>
 </head>
 
