@@ -87,25 +87,37 @@
       margin-bottom: 2rem;
     }
 
-    .project-card {
-      background: #fff;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      margin-bottom: 3rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .project-card img {
+      width: 100%;
+      height: auto;
+      max-height: 220px; /* limit how tall images can get */
+      object-fit: contain; /* keeps logos or UI screenshots crisp */
+      background-color: #fdfdfd; /* subtle backdrop for transparent PNGs */
+      padding: 20px; /* gives spacing for centered visuals */
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
+
 
     .project-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
-    .project-card img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-    }
+.project-card img {
+  display: block;
+  max-width: 70%;     /* scales image smaller */
+  height: auto;       /* keeps proportions */
+  margin: 0 auto;     /* centers horizontally */
+  object-fit: contain;
+  padding: 20px 0;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.project-card img:hover {
+  transform: scale(1.03);
+}
+
 
     .project-card .content {
       padding: 2rem;
@@ -190,7 +202,7 @@
     <div class="container">
       <h2>Automation Experience (n8n)</h2>
       <div class="project-card">
-        <img src="images/projects/n8n.png" alt="Automation flow example">
+        <img src="images/n8n.png" alt="Automation flow example">
         <div class="content">
           <h3>CMS Migration & API Automation</h3>
           <p>At Pro Bono Net, my first major task involved automating content migration from Contentful to Payload CMS using <strong>n8n</strong>. This project required reading and applying API documentation, managing API keys, and handling HTTP authentication headers. It was a pivotal experience that introduced me to backend automation and no-code orchestration.</p>
@@ -220,7 +232,7 @@
     <div class="container">
       <h2>SmartFoods Nutrition (iOS App)</h2>
       <div class="project-card">
-        <img src="images/projects/smartfoods-preview.jpg" alt="SmartFoods iOS App preview">
+        <img src="images/projects/smartfoods-preview.jpg" alt="SmartFoods iOS App preview coming soon. Still developing it!">
         <div class="content">
           <h3>Nutrition Tracking & AI Integration</h3>
           <p>SmartFoods is an iOS app I developed using SwiftUI and Firebase. It helps users log their meals, visualize macronutrients in dynamic pie charts, and get personalized AI nutrition insights. The app integrates with Firebase Firestore for data storage and uses AI via a custom backend built on Cloud Run.</p>
