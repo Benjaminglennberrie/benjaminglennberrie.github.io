@@ -90,7 +90,7 @@
     .project-card img {
       width: 100%;
       height: auto;
-      max-height: 220px; /* limit how tall images can get */
+      max-height: 400px; /* limit how tall images can get */
       object-fit: contain; /* keeps logos or UI screenshots crisp */
       background-color: #fdfdfd; /* subtle backdrop for transparent PNGs */
       padding: 20px; /* gives spacing for centered visuals */
@@ -106,7 +106,7 @@
 
 .project-card img {
   display: block;
-  max-width: 70%;     /* scales image smaller */
+  max-width: 90%;     /* scales image smaller */
   height: auto;       /* keeps proportions */
   margin: 0 auto;     /* centers horizontally */
   object-fit: contain;
@@ -213,19 +213,22 @@
     </div>
   </header>
 
-  <!-- Automation Section -->
-  <section id="automation">
-    <div class="container">
-      <h2>Automation Experience (n8n)</h2>
-      <div class="project-card">
-        <img src="images/n8n.png" alt="Automation flow example">
-        <div class="content">
-          <h3>CMS Migration & API Automation</h3>
-          <p>At Pro Bono Net, my first major task involved automating content migration from Contentful to Payload CMS using <strong>n8n</strong>. This project required reading and applying API documentation, managing API keys, and handling HTTP authentication headers. It was a pivotal experience that introduced me to backend automation and no-code orchestration.</p>
-        </div>
+<!-- Automation Section -->
+<section id="automation">
+  <div class="container">
+    <h2>Automation Experience (n8n)</h2>
+    <div class="project-card" style="text-align:center;">
+      <img src="images/n8n.png" 
+           alt="Automation flow example"
+           style="width:70%; max-width:300px; height:auto; margin:20px auto; border-radius:10px;">
+      <div class="content" style="max-width:800px; margin:0 auto;">
+        <h3>CMS Migration & API Automation</h3>
+        <p>At Pro Bono Net, my first major task involved automating content migration from Contentful to Payload CMS using <strong>n8n</strong>. This project required reading and applying API documentation, managing API keys, and handling HTTP authentication headers. It was a pivotal experience that introduced me to backend automation and no-code orchestration.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Internship Section -->
   <section id="internship">
@@ -244,7 +247,7 @@
   </section>
 
 
-    <section id="internship">
+    <section id="PortfolioWebsite">
     <div class="container">
       <h2>Sick Portfolio Website.</h2>
       <div class="project-card">
@@ -257,6 +260,23 @@
       </div>
     </div>
   </section>
+
+    <section id="Reclamo.ai">
+    <div class="container">
+      <h2>Reclamo.ai</h2>
+      <div class="project-card">
+        <img src="images/ReclamoHomePage.png" alt="Reclamo.ai Home Page">
+        <div class="content">
+          <h3>What I worked on:</h3>
+          <p>At Reclamo AI, I tested and fixed bugs in the website’s chatbot and user interface to improve overall performance and user experience. I also built custom Python-based stress tests using endpoint access and browser emulation to enhance the chatbot’s functionality and ensure it remained stable and secure under heavy load or potential attack.</p>
+          <a href="https://www.Reclamo.ai" target="_blank" class="btn btn-outline-success mt-3">Visit Reclamo.ai</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
 
   <!-- SmartFoods Section -->
   <section id="smartfoods">
