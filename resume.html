@@ -10,25 +10,7 @@
   <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
 
   <style>
-    /* Background video */
-    .bgvideo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    #heroVideo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(45%);
-    }
-
-    /* Page content */
+    /* Base page layout */
     body, html {
       margin: 0;
       padding: 0;
@@ -124,31 +106,16 @@
     }
 
     @keyframes underlineGrow {
-      from {
-        width: 0;
-        opacity: 0;
-      }
-      to {
-        width: 40%;
-        opacity: 1;
-      }
+      from { width: 0; opacity: 0; }
+      to { width: 40%; opacity: 1; }
     }
 
     /* ===========================
        RESPONSIVE DESIGN FIXES
        =========================== */
 
-    /* Hide mobile button by default */
-    .resume-mobile {
-      display: none;
-      color: white;
-      text-align: center;
-    }
-
-    /* Desktop view (default) */
-    .resume-desktop {
-      display: block;
-    }
+    .resume-mobile { display: none; color: white; text-align: center; }
+    .resume-desktop { display: block; }
 
     @media (max-width: 992px) {
       .resume-container {
@@ -159,15 +126,8 @@
         height: auto;
       }
 
-      /* Hide iframe on small screens, show button */
-      .resume-desktop {
-        display: none;
-      }
-
-      .resume-mobile {
-        display: block;
-        padding-top: 8rem;
-      }
+      .resume-desktop { display: none; }
+      .resume-mobile { display: block; padding-top: 8rem; }
 
       .resume-mobile a.btn {
         border-color: #00ffff;
@@ -185,14 +145,8 @@
         background: rgba(0,0,0,0.75);
       }
 
-      .navbar-toggler {
-        border-color: #00ffff;
-      }
-
-      .navbar-toggler-icon {
-        filter: invert(100%);
-      }
-
+      .navbar-toggler { border-color: #00ffff; }
+      .navbar-toggler-icon { filter: invert(100%); }
       .navbar-nav .nav-link {
         text-align: center;
         padding: 0.8rem 0;
@@ -210,30 +164,14 @@
     }
 
     @media (max-width: 576px) {
-      .resume-mobile {
-        padding-top: 7rem;
-      }
-
-      .resume-mobile p {
-        font-size: 1rem;
-      }
-
-      footer {
-        font-size: 0.8rem;
-      }
+      .resume-mobile { padding-top: 7rem; }
+      .resume-mobile p { font-size: 1rem; }
+      footer { font-size: 0.8rem; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Background Video -->
-  <div class="bgvideo">
-    <video autoplay muted loop id="heroVideo">
-      <source src="images/heroVideo1.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-  </div>
-
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top navbarScroll">
     <div class="container">
