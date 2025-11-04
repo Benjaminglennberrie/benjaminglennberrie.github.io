@@ -8,45 +8,67 @@
   <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
 
   <style>
-    /* ===== Background video ===== */
-    .bgvideo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-    #heroVideo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(45%);
-    }
-
     /* ===== Page layout ===== */
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
       font-family: "Poppins", sans-serif;
       color: white;
       background: black;
+      overflow-x: hidden;
+      overflow-y: auto; /* ✅ enable scroll on mobile */
     }
 
     nav.navbar {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(6px);
     }
 
+    .navbar-brand {
+      color: white !important;
+      font-weight: 600;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #00ffff !important;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #00ffff !important;
+      font-weight: 600;
+    }
+
+    .navbar-toggler {
+      border-color: #00ffff;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(100%);
+    }
+
+    @media (max-width: 992px) {
+      .navbar-nav .nav-link {
+        text-align: center;
+        padding: 0.8rem 0;
+      }
+    }
+
+    /* ===== Page Content ===== */
     .contact-wrapper {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 100vh;
-      padding: 0 5%;
+      min-height: 100vh;
+      padding: 6rem 5% 3rem;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
 
     /* ===== Left text section ===== */
@@ -54,11 +76,13 @@
       flex: 1;
       z-index: 2;
     }
+
     .contact-text h1 {
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
+
     .contact-text p {
       font-size: 1.2rem;
       color: #ccc;
@@ -71,12 +95,14 @@
       margin-top: 1.5rem;
       line-height: 2rem;
     }
+
     .contact-details a {
       color: #00ffff;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
+
     .contact-details a:hover {
       color: #66ffff;
     }
@@ -85,12 +111,14 @@
     .social-icons {
       margin-top: 2rem;
     }
+
     .social-icons a {
       color: white;
       margin-right: 20px;
       font-size: 2rem;
       transition: color 0.3s;
     }
+
     .social-icons a:hover {
       color: #00ffff;
     }
@@ -110,192 +138,89 @@
       border: none;
     }
 
-    /* Responsive */
+    /* ===== Responsive ===== */
     @media (max-width: 992px) {
       .contact-wrapper {
         flex-direction: column;
-        justify-content: center;
-        padding-top: 6rem;
-      }
-      .map-container {
-        width: 90%;
-        height: 50vh;
-        margin-top: 2rem;
-      }
-      .contact-text {
+        align-items: center;
+        justify-content: flex-start;
         text-align: center;
+        padding-top: 7rem;
       }
+
+      .contact-text {
+        order: 1;
+        width: 100%;
+      }
+
+      .contact-text h1 {
+        font-size: 2.2rem;
+      }
+
       .contact-text p {
-        margin: 0 auto 2rem;
+        font-size: 1.1rem;
+        margin: 0 auto 1.5rem;
+        max-width: 90%;
+      }
+
+      .contact-details {
+        font-size: 1rem;
+        line-height: 1.8rem;
+      }
+
+      .map-container {
+        order: 2;
+        width: 95%;
+        height: 55vh; /* ✅ taller for scrolling visibility */
+        margin-top: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+      }
+
+      iframe {
+        height: 100%;
+        width: 100%;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+      }
+
+      .social-icons a {
+        font-size: 1.5rem;
+        margin: 0 10px;
       }
     }
-    /* === ACTIVE PAGE UNDERLINE + ARROW === */
-.navbar-nav .nav-link {
-  position: relative;
-  color: white;
-  transition: color 0.3s ease;
-  font-weight: 500;
-}
 
-.navbar-nav .nav-link:hover {
-  color: #00ffff;
-}
+    @media (max-width: 576px) {
+      .contact-text h1 {
+        font-size: 1.8rem;
+      }
 
-/* Active link styling */
-.navbar-nav .nav-link.active {
-  color: #00ffff;
-  font-weight: 600;
-}
+      .contact-text p {
+        font-size: 1rem;
+      }
 
-/* Cyan underline animation */
-.navbar-nav .nav-link.active::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  transform: translateX(-50%);
-  width: 40%;
-  height: 2px;
-  background-color: #00ffff;
-  border-radius: 2px;
-  animation: underlineGrow 0.3s ease forwards;
-}
+      .contact-details {
+        font-size: 0.95rem;
+      }
 
-/* Little arrow under the line */
-.navbar-nav .nav-link.active::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -12px;
-  transform: translateX(-50%) rotate(45deg);
-  width: 6px;
-  height: 6px;
-  background-color: #00ffff;
-  border-radius: 1px;
-}
+      .map-container {
+        height: 60vh; /* ✅ taller for small phones */
+        width: 90%;
+      }
 
-/* Smooth grow animation */
-@keyframes underlineGrow {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 40%;
-    opacity: 1;
-  }
-}
-/* ===========================
-   RESPONSIVE DESIGN UPGRADES
-   =========================== */
-@media (max-width: 992px) {
-  /* Layout stacks naturally */
-  .contact-wrapper {
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
-    height: auto;
-    padding: 7rem 5% 3rem;
-  }
-
-  /* Hero text center-aligned */
-  .contact-text {
-    order: 1;
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .contact-text h1 {
-    font-size: 2.2rem;
-  }
-
-  .contact-text p {
-    font-size: 1.1rem;
-    margin: 0 auto 1.5rem;
-    max-width: 90%;
-  }
-
-  .contact-details {
-    font-size: 1rem;
-    line-height: 1.8rem;
-  }
-
-  /* Map fits viewport */
-  .map-container {
-    order: 2;
-    width: 95%;
-    height: 50vh;
-    margin-top: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
-  }
-
-  iframe {
-    height: 100%;
-    width: 100%;
-  }
-
-  /* Navbar tweaks */
-  nav.navbar {
-    background: rgba(0, 0, 0, 0.75);
-  }
-
-  .navbar-toggler {
-    border-color: #00ffff;
-  }
-  .navbar-toggler-icon {
-    filter: invert(100%);
-  }
-
-  /* Social icons centered */
-  .social-icons {
-    display: flex;
-    justify-content: center;
-  }
-  .social-icons a {
-    font-size: 1.5rem;
-    margin: 0 10px;
-  }
-}
-
-/* Smaller phones */
-@media (max-width: 576px) {
-  .contact-text h1 {
-    font-size: 1.8rem;
-  }
-
-  .contact-text p {
-    font-size: 1rem;
-  }
-
-  .contact-details {
-    font-size: 0.95rem;
-  }
-
-  .map-container {
-    height: 45vh;
-    width: 90%;
-  }
-
-  .social-icons a {
-    font-size: 1.3rem;
-    margin: 0 8px;
-  }
-}
+      .social-icons a {
+        font-size: 1.3rem;
+        margin: 0 8px;
+      }
+    }
 
   </style>
 </head>
 
 <body>
-
-  <!-- Background Video -->
-  <div class="bgvideo">
-    <video autoplay muted loop id="heroVideo">
-      <source src="images/heroVideo1.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-  </div>
-
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top navbarScroll">
     <div class="container">
@@ -338,7 +263,8 @@
     <!-- Right side (Map) -->
     <div class="map-container">
       <iframe
-  src="https://www.google.com/maps/embed/v1/place?q=Raleigh,+NC,+USA&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"        allowfullscreen>
+        src="https://www.google.com/maps/embed/v1/place?q=Raleigh,+NC,+USA&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+        allowfullscreen>
       </iframe>
     </div>
   </div>
