@@ -32,6 +32,8 @@
       height: 100%;
       object-fit: cover;
       filter: brightness(60%);
+      pointer-events: none;  /* Disable click/drag/pause */
+      user-select: none;     /* Disable selection */
     }
 
     /* === Hero Text === */
@@ -154,24 +156,12 @@
        DESKTOP-ONLY ARC POSITIONING (DISABLED ON MOBILE)
        ========================================================= */
     @media (min-width: 993px) {
-      /* Tightened arc positioning for orbit buttons */
-      .video-nav-item:nth-child(1) {
-        transform: translate(-0%, -20%);
-      }
-      .video-nav-item:nth-child(2) {
-        transform: translate(-60%, -10%);
-      }
-      .video-nav-item:nth-child(3) {
-        transform: translate(-75%, 0%);
-      }
-      .video-nav-item:nth-child(4) {
-        transform: translate(-60%, 10%);
-      }
-      .video-nav-item:nth-child(5) {
-        transform: translate(-0%, 20%);
-      }
+      .video-nav-item:nth-child(1) { transform: translate(-0%, -20%); }
+      .video-nav-item:nth-child(2) { transform: translate(-60%, -10%); }
+      .video-nav-item:nth-child(3) { transform: translate(-75%, 0%); }
+      .video-nav-item:nth-child(4) { transform: translate(-60%, 10%); }
+      .video-nav-item:nth-child(5) { transform: translate(-0%, 20%); }
 
-      /* Center anchor point for arc */
       .video-nav {
         position: absolute;
         top: 50%;
@@ -184,11 +174,8 @@
        RESPONSIVE DESIGN UPGRADES
        ========================================================= */
     @media (max-width: 992px) {
-      #heroVideo {
-        filter: brightness(50%);
-      }
+      #heroVideo { filter: brightness(50%); }
 
-      /* Centered hero text */
       .hero-text {
         top: 50%;
         left: 50%;
@@ -196,14 +183,9 @@
         text-align: center;
         width: 90%;
       }
-      .hero-text h2 {
-        font-size: 2rem;
-      }
-      .hero-text p {
-        font-size: 1rem;
-      }
+      .hero-text h2 { font-size: 2rem; }
+      .hero-text p { font-size: 1rem; }
 
-      /* Turn vertical nav into bottom bar */
       .video-nav {
         position: absolute;
         bottom: 150px; /* raised higher */
@@ -222,9 +204,7 @@
         transform: none !important;
       }
 
-      .video-nav-item a {
-        font-size: 0.85em;
-      }
+      .video-nav-item a { font-size: 0.85em; }
 
       .orbit-ring,
       .orbit-ring2 {
@@ -233,22 +213,13 @@
         border-width: 1.5px;
       }
 
-      footer {
-        bottom: 5px;
-      }
-      .social-icons a {
-        font-size: 1.2rem;
-        margin: 0 6px;
-      }
+      footer { bottom: 5px; }
+      .social-icons a { font-size: 1.2rem; margin: 0 6px; }
     }
 
     @media (max-width: 576px) {
-      .hero-text h2 {
-        font-size: 1.8rem;
-      }
-      .hero-text p {
-        font-size: 0.9rem;
-      }
+      .hero-text h2 { font-size: 1.8rem; }
+      .hero-text p { font-size: 0.9rem; }
 
       .video-nav {
         bottom: 100px; /* raised for small phones */
@@ -275,9 +246,7 @@
       z-index: 2;
     }
 
-    .circle-link:hover {
-      color: #00ffff;
-    }
+    .circle-link:hover { color: #00ffff; }
 
     .link-text {
       position: relative;
@@ -292,7 +261,8 @@
 
 <body>
   <section class="bgvideo" id="home">
-    <video autoplay muted loop playsinline preload="metadata" id="heroVideo">
+    <video autoplay muted loop playsinline preload="metadata" id="heroVideo"
+           controlslist="nodownload nofullscreen noremoteplayback">
       <source src="images/heroVideo1.mp4" type="video/mp4">
     </video>
 
@@ -347,5 +317,13 @@
       </div>
     </footer>
   </section>
+
+  <!-- Disable right-click on video -->
+  <script>
+    const video = document.getElementById('heroVideo');
+    if (video) {
+      video.addEventListener('contextmenu', e => e.preventDefault());
+    }
+  </script>
 </body>
 </html>
