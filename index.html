@@ -175,7 +175,7 @@
       .video-nav {
         position: absolute;
         top: 50%;
-        left: 22%;   /* how far left the arc starts */
+        left: 22%;
         transform: translate(-50%, -50%);
       }
     }
@@ -206,7 +206,7 @@
       /* Turn vertical nav into bottom bar */
       .video-nav {
         position: absolute;
-        bottom: 80px;
+        bottom: 150px; /* raised higher */
         top: auto;
         left: 50%;
         transform: translateX(-50%);
@@ -219,7 +219,7 @@
       .video-nav-item {
         width: 70px;
         height: 70px;
-        transform: none !important; /* disable arc transforms */
+        transform: none !important;
       }
 
       .video-nav-item a {
@@ -251,14 +251,14 @@
       }
 
       .video-nav {
-        bottom: 20px;
+        bottom: 100px; /* raised for small phones */
         gap: 15px;
       }
 
       .video-nav-item {
         width: 60px;
         height: 60px;
-        transform: none !important; /* ensure flat layout */
+        transform: none !important;
       }
     }
 
