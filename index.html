@@ -54,7 +54,7 @@
       color: #ddd;
     }
 
-    /* === Video Nav === */
+    /* === Video Nav (base) === */
     .video-nav {
       position: absolute;
       top: 50%;
@@ -75,32 +75,6 @@
       align-items: center;
       justify-content: center;
     }
-/* Tightened arc positioning for orbit buttons */
-.video-nav-item:nth-child(1) {
-  transform: translate(-0%, -20%);
-}
-.video-nav-item:nth-child(2) {
-  transform: translate(-60%, -10%);
-}
-.video-nav-item:nth-child(3) {
-  transform: translate(-75%, 0%);
-}
-.video-nav-item:nth-child(4) {
-  transform: translate(-60%, 10%);
-}
-.video-nav-item:nth-child(5) {
-  transform: translate(-0%, 20%);
-}
-
-
-/* Center anchor point for arc */
-.video-nav {
-  position: absolute;
-  top: 50%;
-  left: 22%;   /* how far left the arc starts */
-  transform: translate(-50%, -50%);
-}
-
 
     .video-nav-item a {
       color: white;
@@ -175,168 +149,188 @@
     .social-icons a:hover {
       color: #00ffff;
     }
-    /* ===========================
-   RESPONSIVE DESIGN UPGRADES
-   =========================== */
 
-/* Default (Desktop): you already nailed it */
+    /* =========================================================
+       DESKTOP-ONLY ARC POSITIONING (DISABLED ON MOBILE)
+       ========================================================= */
+    @media (min-width: 993px) {
+      /* Tightened arc positioning for orbit buttons */
+      .video-nav-item:nth-child(1) {
+        transform: translate(-0%, -20%);
+      }
+      .video-nav-item:nth-child(2) {
+        transform: translate(-60%, -10%);
+      }
+      .video-nav-item:nth-child(3) {
+        transform: translate(-75%, 0%);
+      }
+      .video-nav-item:nth-child(4) {
+        transform: translate(-60%, 10%);
+      }
+      .video-nav-item:nth-child(5) {
+        transform: translate(-0%, 20%);
+      }
 
-@media (max-width: 992px) {
-  /* Video and background tweaks */
-  #heroVideo {
-    filter: brightness(50%);
-  }
+      /* Center anchor point for arc */
+      .video-nav {
+        position: absolute;
+        top: 50%;
+        left: 22%;   /* how far left the arc starts */
+        transform: translate(-50%, -50%);
+      }
+    }
 
-  /* Make hero text centered for mobile */
-  .hero-text {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 90%;
-  }
-  .hero-text h2 {
-    font-size: 2rem;
-  }
-  .hero-text p {
-    font-size: 1rem;
-  }
+    /* =========================================================
+       RESPONSIVE DESIGN UPGRADES
+       ========================================================= */
+    @media (max-width: 992px) {
+      #heroVideo {
+        filter: brightness(50%);
+      }
 
-  /* Turn the vertical nav into a bottom bar */
-  .video-nav {
-    position: absolute;
-    bottom: 40px;
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-  }
+      /* Centered hero text */
+      .hero-text {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+      }
+      .hero-text h2 {
+        font-size: 2rem;
+      }
+      .hero-text p {
+        font-size: 1rem;
+      }
 
-  .video-nav-item {
-    width: 70px;
-    height: 70px;
-  }
+      /* Turn vertical nav into bottom bar */
+      .video-nav {
+        position: absolute;
+        bottom: 40px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+      }
 
-  .video-nav-item a {
-    font-size: 0.85em;
-  }
+      .video-nav-item {
+        width: 70px;
+        height: 70px;
+        transform: none !important; /* disable arc transforms */
+      }
 
-  .orbit-ring,
-  .orbit-ring2 {
-    width: 60px;
-    height: 60px;
-    border-width: 1.5px;
-  }
+      .video-nav-item a {
+        font-size: 0.85em;
+      }
 
-  /* Footer social icons smaller + higher */
-  footer {
-    bottom: 5px;
-  }
-  .social-icons a {
-    font-size: 1.2rem;
-    margin: 0 6px;
-  }
-}
+      .orbit-ring,
+      .orbit-ring2 {
+        width: 60px;
+        height: 60px;
+        border-width: 1.5px;
+      }
 
-/* Even smaller devices (portrait phones) */
-@media (max-width: 576px) {
-  .hero-text h2 {
-    font-size: 1.8rem;
-  }
-  .hero-text p {
-    font-size: 0.9rem;
-  }
+      footer {
+        bottom: 5px;
+      }
+      .social-icons a {
+        font-size: 1.2rem;
+        margin: 0 6px;
+      }
+    }
 
-  .video-nav {
-    bottom: 20px;
-    gap: 15px;
-  }
+    @media (max-width: 576px) {
+      .hero-text h2 {
+        font-size: 1.8rem;
+      }
+      .hero-text p {
+        font-size: 0.9rem;
+      }
 
-  .video-nav-item {
-    width: 60px;
-    height: 60px;
-  }
-}
-@media (max-width: 768px) {
-  .video-nav {
-    top: 42%;
-  }
-}
-.circle-link {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  border-radius: 50%;
-  z-index: 2;
-}
+      .video-nav {
+        bottom: 20px;
+        gap: 15px;
+      }
 
-.circle-link:hover {
-  color: #00ffff;
-}
+      .video-nav-item {
+        width: 60px;
+        height: 60px;
+        transform: none !important; /* ensure flat layout */
+      }
+    }
 
-.link-text {
-  position: relative;
-  z-index: 3;
-  text-shadow: 0 0 8px rgba(0,0,0,0.6);
-  font-size: 1.0em;
-  font-weight: 500;
-  pointer-events: none; /* makes sure clicks go through text */
-}
+    .circle-link {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      border-radius: 50%;
+      z-index: 2;
+    }
 
+    .circle-link:hover {
+      color: #00ffff;
+    }
+
+    .link-text {
+      position: relative;
+      z-index: 3;
+      text-shadow: 0 0 8px rgba(0,0,0,0.6);
+      font-size: 1.0em;
+      font-weight: 500;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body>
   <section class="bgvideo" id="home">
-<video autoplay muted loop playsinline preload="metadata" id="heroVideo">
-  <source src="images/heroVideo1.mp4" type="video/mp4">
-</video>
-
+    <video autoplay muted loop playsinline preload="metadata" id="heroVideo">
+      <source src="images/heroVideo1.mp4" type="video/mp4">
+    </video>
 
     <!-- Orbit Nav -->
-<div class="video-nav">
-  <div class="video-nav-item">
-    <a href="index.html" class="circle-link">
-      <span class="orbit-ring"></span>
-      <span class="orbit-ring2"></span>
-      <span class="link-text">Home</span>
-    </a>
-  </div>
-  <div class="video-nav-item">
-    <a href="projects.html" class="circle-link">
-      <span class="orbit-ring"></span>
-      <span class="link-text">Projects</span>
-    </a>
-  </div>
-  <div class="video-nav-item">
-    <a href="interests.html" class="circle-link">
-      <span class="orbit-ring"></span>
-      <span class="link-text">Interests</span>
-    </a>
-  </div>
-  <div class="video-nav-item">
-    <a href="resume.html" class="circle-link">
-      <span class="orbit-ring"></span>
-      <span class="link-text">Resume</span>
-    </a>
-  </div>
-  <div class="video-nav-item">
-    <a href="contact.html" class="circle-link">
-      <span class="orbit-ring"></span>
-      <span class="orbit-ring2"></span>
-      <span class="link-text">Contact</span>
-    </a>
-  </div>
-</div>
-
+    <div class="video-nav">
+      <div class="video-nav-item">
+        <a href="index.html" class="circle-link">
+          <span class="orbit-ring"></span>
+          <span class="orbit-ring2"></span>
+          <span class="link-text">Home</span>
+        </a>
+      </div>
+      <div class="video-nav-item">
+        <a href="projects.html" class="circle-link">
+          <span class="orbit-ring"></span>
+          <span class="link-text">Projects</span>
+        </a>
+      </div>
+      <div class="video-nav-item">
+        <a href="interests.html" class="circle-link">
+          <span class="orbit-ring"></span>
+          <span class="link-text">Interests</span>
+        </a>
+      </div>
+      <div class="video-nav-item">
+        <a href="resume.html" class="circle-link">
+          <span class="orbit-ring"></span>
+          <span class="link-text">Resume</span>
+        </a>
+      </div>
+      <div class="video-nav-item">
+        <a href="contact.html" class="circle-link">
+          <span class="orbit-ring"></span>
+          <span class="orbit-ring2"></span>
+          <span class="link-text">Contact</span>
+        </a>
+      </div>
+    </div>
 
     <!-- Hero Text -->
     <div class="hero-text">
