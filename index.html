@@ -261,7 +261,7 @@
 
 <body>
   <section class="bgvideo" id="home">
-    <video autoplay muted loop playsinline preload="metadata" id="heroVideo"
+    <video muted autoplay playsinline webkit-playsinline loop preload="auto" id="heroVideo"
            controlslist="nodownload nofullscreen noremoteplayback">
       <source src="images/heroVideo1.mp4" type="video/mp4">
     </video>
@@ -318,11 +318,24 @@
     </footer>
   </section>
 
-  <!-- Disable right-click on video -->
+  <!-- Force autoplay + disable context menu -->
   <script>
     const video = document.getElementById('heroVideo');
     if (video) {
       video.addEventListener('contextmenu', e => e.preventDefault());
+
+      const tryPlay = () => {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            document.body.addEventListener('touchstart', () => video.play(), { once: true });
+            document.body.addEventListener('click', () => video.play(), { once: true });
+          });
+        }
+      };
+
+      if (document.readyState === 'complete') tryPlay();
+      else window.addEventListener('load', tryPlay);
     }
   </script>
 </body>
