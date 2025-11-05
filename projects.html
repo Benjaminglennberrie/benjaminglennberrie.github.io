@@ -212,15 +212,12 @@
     /* ===== Slideshow styling ===== */
     .slideshow-container {
       position: relative;
-      max-width: 400px;
+      max-width: 350px;
       margin: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
+
     .slideshow-image {
       display: none;
-      background: transparent;
     }
     .slideshow-image.active {
       display: block;
@@ -230,50 +227,46 @@
       height: auto;
       border-radius: 12px;
       display: block;
-      padding: 0;
-      margin: 0;
-      border: none;
-      box-shadow: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     .caption {
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      right: 0;
       text-align: center;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      padding: 0.75rem;
-      font-size: 0.95rem;
-      border-radius: 0 0 12px 12px;
+      color: white;      
+      padding: 0.75rem 0;
+      top: -34px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
     }
     .prev, .next {
       cursor: pointer;
       position: absolute;
       top: 50%;
       width: auto;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem;
       color: white;
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       transition: 0.3s ease;
-      border-radius: 4px;
+      border-radius: 6px;
       user-select: none;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.5);
       transform: translateY(-50%);
+      z-index: 10;
+      border: none;
     }
     .prev:hover, .next:hover {
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.8);
     }
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    .prev { left: -15px; }
+    .next { right: -15px; }
 
     /* Smartfoods layout - side by side */
     .smartfoods-layout {
       display: flex;
       flex-direction: row;
-      gap: 2rem;
-      align-items: flex-start;
+      gap: 3rem;
+      align-items: center;
       padding: 2rem;
     }
 
@@ -290,12 +283,18 @@
     @media (max-width: 992px) {
       .smartfoods-layout {
         flex-direction: column;
+        align-items: center;
+      }
+      .smartfoods-layout .content {
+        text-align: center;
       }
       .smartfoods-layout .slideshow-container {
         flex: 1;
-        max-width: 100%;
+        max-width: 350px;
         margin: 2rem auto;
       }
+      .prev { left: 5px; }
+      .next { right: 5px; }
     }
   </style>
 </head>
@@ -412,30 +411,25 @@
           <!-- Slideshow -->
           <div class="slideshow-container">
             <div class="slideshow-image active">
-              <img src="images/smartfoods/loginscreenshot.png" alt="SmartFoods App Screenshot 1">
-              <div class="caption">Log In First Page</div>
-            </div>
-
-            <div class="slideshow-image">
-              <img src="images/smartfoods/signinscreenshot.png" alt="SmartFoods App Screenshot 2">
-              <div class="caption">Sign In Page</div>
-            </div>
-
-            <div class="slideshow-image">
-              <img src="images/smartfoods/chatbotscreenshot.png" alt="SmartFoods App Screenshot 3">
-              <div class="caption">AI Insights</div>
+              <img src="images/smartfoods/loginscreenshot.png" alt="SmartFoods Login Screen">
             </div>
             <div class="slideshow-image">
-              <img src="images/smartfoods/foodpiescreenshot.png" alt="SmartFoods App Screenshot 4">
-              <div class="caption">Food Pie with added Macros</div>
+              <img src="images/smartfoods/signinscreenshot.png" alt="SmartFoods Sign In Screen">
             </div>
             <div class="slideshow-image">
-              <img src="images/smartfoods/profilescreenshot.png" alt="SmartFoods App Screenshot 5">
-              <div class="caption">Personal Body Data</div>
+              <img src="images/smartfoods/chatbotscreenshot.png" alt="SmartFoods AI Chatbot">
+            </div>
+            <div class="slideshow-image">
+              <img src="images/smartfoods/foodpiescreenshot.png" alt="SmartFoods Food Pie Chart">
+            </div>
+            <div class="slideshow-image">
+              <img src="images/smartfoods/profilescreenshot.png" alt="SmartFoods Profile">
             </div>
 
             <button class="prev" onclick="plusSlides(-1)">❮</button>
             <button class="next" onclick="plusSlides(1)">❯</button>
+
+            <div class="caption" id="slide-caption">Log In First Page</div>
           </div>
         </div>
       </div>
@@ -454,6 +448,14 @@
 
   <script>
     let slideIndex = 1;
+    const captions = [
+      "Log In First Page",
+      "Sign In Page", 
+      "AI Insights",
+      "Food Pie with added Macros",
+      "Personal Body Data"
+    ];
+    
     showSlides(slideIndex);
 
     function plusSlides(n) {
@@ -463,12 +465,17 @@
     function showSlides(n) {
       let i;
       const slides = document.getElementsByClassName('slideshow-image');
+      const captionText = document.getElementById("slide-caption");
+      
       if (n > slides.length) {slideIndex = 1}
       if (n < 1) {slideIndex = slides.length}
+      
       for (i = 0; i < slides.length; i++) {
         slides[i].classList.remove('active');
       }
+      
       slides[slideIndex-1].classList.add('active');
+      captionText.innerHTML = captions[slideIndex-1];
     }
   </script>
 
