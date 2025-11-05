@@ -199,14 +199,70 @@
     html {
       scroll-behavior: smooth;
     }
-        /* Only shrink the n8n and Pro Bono images */
-.project-card img[src*="n8n.png"],
-.project-card-probono img[src*="probononet-overview.png"] {
-  max-width: 50%;   /* half the previous width */
-  height: auto;
-  margin: 0 auto;
-  display: block;
-}
+
+    /* Only shrink the n8n and Pro Bono images */
+    .project-card img[src*="n8n.png"],
+    .project-card-probono img[src*="probononet-overview.png"] {
+      max-width: 50%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* ===== Slideshow styling ===== */
+    .slideshow-container {
+      position: relative;
+      max-width: 800px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      background-color: white;
+    }
+    .slideshow-image {
+      display: none;
+    }
+    .slideshow-image.active {
+      display: block;
+    }
+    .slideshow-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+    .caption {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.75rem;
+      font-size: 0.95rem;
+      border-radius: 0 0 12px 12px;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 0.5rem 1rem;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      transition: 0.3s ease;
+      border-radius: 4px;
+      user-select: none;
+      background: rgba(0,0,0,0.4);
+      transform: translateY(-50%);
+    }
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.7);
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
   </style>
 </head>
 
@@ -269,7 +325,7 @@
         <img src="images/probononet-overview.png" alt="Pro Bono Net overview">
         <div class="content">
           <h3>Pro Bono Net Internship — Access to Justice Through Technology</h3>
-          <p>During my internship, I contributed to Pro Bono Net’s mission of empowering underserved communities through digital tools. I collaborated with legal aid partners, learned project management in a nonprofit setting, and grew in both technical and professional maturity. Working remotely required me to practice independence, communication, and accountability.</p>
+          <p>During my internship, I contributed to Pro Bono Net's mission of empowering underserved communities through digital tools. I collaborated with legal aid partners, learned project management in a nonprofit setting, and grew in both technical and professional maturity. Working remotely required me to practice independence, communication, and accountability.</p>
           <p class="quote">"Harnessing technology for a more just future." — Betty Balli Torres</p>
           <a href="https://www.probono.net" target="_blank" class="btn btn-outline-success mt-3">Visit Pro Bono Net</a>
         </div>
@@ -300,7 +356,7 @@
         <img src="images/ReclamoHomePage.png" alt="Reclamo.ai Home Page">
         <div class="content">
           <h3>Bug Testing & Stress Testing Automation</h3>
-          <p>At Reclamo AI, I tested and fixed bugs in the website’s chatbot and user interface to improve overall performance and user experience. I also built custom Python-based stress tests using endpoint access and browser emulation to enhance the chatbot’s functionality and ensure it remained stable and secure under heavy load or potential attack.</p>
+          <p>At Reclamo AI, I tested and fixed bugs in the website's chatbot and user interface to improve overall performance and user experience. I also built custom Python-based stress tests using endpoint access and browser emulation to enhance the chatbot's functionality and ensure it remained stable and secure under heavy load or potential attack.</p>
           <a href="https://www.Reclamo.ai" target="_blank" class="btn btn-outline-success mt-3">Visit Reclamo.ai</a>
         </div>
       </div>
@@ -312,11 +368,39 @@
     <div class="container">
       <h2>SmartFoods Nutrition (iOS App)</h2>
       <div class="project-card">
-        <img src="images/comingsoon.png" alt="SmartFoods iOS App preview coming soon. Still developing it!">
         <div class="content">
           <h3>Nutrition Tracking & AI Integration</h3>
           <p>SmartFoods is an iOS app I developed using SwiftUI and Firebase. It helps users log their meals, visualize macronutrients in dynamic pie charts, and get personalized AI nutrition insights. The app integrates with Firebase Firestore for data storage and uses AI via a custom backend built on Cloud Run.</p>
           <p>This personal project combines my passion for nutrition, mobile design, and AI-driven feedback systems.</p>
+        </div>
+        
+        <!-- Slideshow -->
+        <div class="slideshow-container">
+          <div class="slideshow-image active">
+            <img src="images/smartfoods/loginscreenshot.png" alt="SmartFoods App Screenshot 1">
+            <div class="caption">Log In First Page</div>
+          </div>
+
+          <div class="slideshow-image">
+            <img src="images/smartfoods/signinscreenshot.png" alt="SmartFoods App Screenshot 2">
+            <div class="caption">Sign In Page</div>
+          </div>
+
+          <div class="slideshow-image">
+            <img src="images/smartfoods/chatbotscreenshot.png" alt="SmartFoods App Screenshot 3">
+            <div class="caption">AI Insights</div>
+          </div>
+                    <div class="slideshow-image">
+            <img src="images/smartfoods/foodpiescreenshot.png" alt="SmartFoods App Screenshot 3">
+            <div class="caption">Food Pie with added Macros</div>
+          </div>
+                    <div class="slideshow-image">
+            <img src="images/smartfoods/profilescreenshot.png" alt="SmartFoods App Screenshot 3">
+            <div class="caption">Personal Body Data</div>
+          </div>
+
+          <button class="prev" onclick="plusSlides(-1)">❮</button>
+          <button class="next" onclick="plusSlides(1)">❯</button>
         </div>
       </div>
     </div>
@@ -331,6 +415,29 @@
     </div>
     <p class="mb-0">© 2025 Benjamin Brodwolf. All rights reserved.</p>
   </footer>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName('slideshow-image');
+    showSlides();
+
+    function plusSlides(n) {
+      slideIndex += n - 1;
+      showSlides();
+    }
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { 
+        slideIndex = 1; 
+      }
+      slides[slideIndex - 1].classList.add('active');
+      setTimeout(showSlides, 6000); // auto rotate every 6 seconds
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
