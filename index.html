@@ -156,10 +156,12 @@
        DESKTOP-ONLY ARC POSITIONING (DISABLED ON MOBILE)
        ========================================================= */
     @media (min-width: 993px) {
-      .video-nav-item:nth-child(2) { transform: translate(-60%, -10%); }
-      .video-nav-item:nth-child(3) { transform: translate(-75%, 0%); }
-      .video-nav-item:nth-child(4) { transform: translate(-60%, 10%); }
-      .video-nav-item:nth-child(5) { transform: translate(-0%, 20%); }
+/* === Video Nav Arc Fix === */
+.video-nav-item:nth-child(1) { transform: rotate(-60deg) translate(150px) rotate(60deg); }
+.video-nav-item:nth-child(2) { transform: rotate(-20deg) translate(150px) rotate(20deg); }
+.video-nav-item:nth-child(3) { transform: rotate(20deg) translate(150px) rotate(-20deg); }
+.video-nav-item:nth-child(4) { transform: rotate(60deg) translate(150px) rotate(-60deg); }
+
 
       .video-nav {
         position: absolute;
