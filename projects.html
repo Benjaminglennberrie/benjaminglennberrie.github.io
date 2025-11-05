@@ -217,10 +217,10 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      background-color: white;
     }
     .slideshow-image {
       display: none;
+      background: transparent;
     }
     .slideshow-image.active {
       display: block;
@@ -232,7 +232,8 @@
       display: block;
       padding: 0;
       margin: 0;
-      background-color: transparent;
+      border: none;
+      box-shadow: none;
     }
     .caption {
       position: absolute;
@@ -271,18 +272,19 @@
     .smartfoods-layout {
       display: flex;
       flex-direction: row;
-      gap: 3rem;
-      align-items: center;
+      gap: 2rem;
+      align-items: flex-start;
       padding: 2rem;
     }
 
     .smartfoods-layout .content {
       flex: 1;
       padding: 0 !important;
+      text-align: left;
     }
 
     .smartfoods-layout .slideshow-container {
-      flex: 0 0 400px;
+      flex: 0 0 350px;
     }
 
     @media (max-width: 992px) {
@@ -451,25 +453,22 @@
   </footer>
 
   <script>
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName('slideshow-image');
-    showSlides();
+    let slideIndex = 1;
+    showSlides(slideIndex);
 
     function plusSlides(n) {
-      slideIndex += n - 1;
-      showSlides();
+      showSlides(slideIndex += n);
     }
 
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
+    function showSlides(n) {
+      let i;
+      const slides = document.getElementsByClassName('slideshow-image');
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
         slides[i].classList.remove('active');
       }
-      slideIndex++;
-      if (slideIndex > slides.length) { 
-        slideIndex = 1; 
-      }
-      slides[slideIndex - 1].classList.add('active');
-      setTimeout(showSlides, 6000); // auto rotate every 6 seconds
+      slides[slideIndex-1].classList.add('active');
     }
   </script>
 
